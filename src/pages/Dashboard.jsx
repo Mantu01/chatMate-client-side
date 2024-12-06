@@ -28,7 +28,7 @@ const Dashboard = () => {
     const handleUserSelect = (user) => {
         setSelectedUser(user);
         setIsSidebarOpen(false); // Auto-close sidebar on small screens when a user is selected
-        messagesService.getMessagesWithUser(user._id)
+        messagesService.getMessagesWithUser(user.userName)
             .then((response) => setMessages(response))
             .catch((error) => console.error('Error fetching messages:', error));
     };
@@ -39,6 +39,7 @@ const Dashboard = () => {
                 targetUser: selectedUser._id,
                 text: message,
             };
+            console.log(messageData);
             try {
                 await messagesService.sendMessage(messageData);
                 setMessages((prevMessages) => [...prevMessages, messageData]);
@@ -122,8 +123,8 @@ const Dashboard = () => {
                                                     : 'bg-gray-700'
                                                     }`}
                                             >
-                                                <p className="text-sm md:text-base">{msg.text}</p>
-                                                <small className="text-gray-500 text-xs md:text-sm">
+                                                <p className="text-sm md:text-base">{msg.content}</p>
+                                                <small className="text-xs md:text-sm">
                                                     {new Date(msg.sentAt).toLocaleTimeString()}
                                                 </small>
                                             </div>
