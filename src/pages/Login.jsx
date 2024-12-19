@@ -102,7 +102,7 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute inset-y-0 right-3 top-6 flex items-center"
+                  className="absolute inset-y-0 right-3 top-6 flex items-center text-black"
                 >
                   {showPassword ? (
                     <HiOutlineEye size={20} />
