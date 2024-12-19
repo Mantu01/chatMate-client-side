@@ -12,6 +12,7 @@ import store from './store/store.js';
 import Friend from './pages/Friend.jsx';
 import Layout from './Layout.jsx';
 import UserProfile from './pages/UserProfile.jsx';
+import About from './pages/About.jsx';
 
 createRoot(document.getElementById('root')).render(
   <>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='' element={<App/>} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
+            <Route path="about" element={<About />} />
             <Route path="dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
